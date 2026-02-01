@@ -1,7 +1,7 @@
 import docker
 
 
-def build_image(tag: str, path: str) -> str:
+def build_image(tag: str, path: str):
     client = None
     try:
         client = docker.from_env()
