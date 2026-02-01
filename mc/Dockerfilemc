@@ -1,0 +1,12 @@
+FROM ubuntu:noble
+
+RUN apt update -y && apt install -y openjdk-21-jdk && rm -rf /var/cache/apt
+
+COPY . /minecraft
+
+RUN echo "eula=True" >> /minecraft/eula.txt
+
+WORKDIR /minecraft
+
+EXPOSE 25565
+CMD ["java", "-Xmx1024M", "-Xms1024M", "-jar", "server.jar","nogui"]
